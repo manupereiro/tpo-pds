@@ -16,10 +16,15 @@ public class CourseController {
     }
 
     public void addStudentToRegisteredCourse(Student student, BigInteger courseId){
-        return;
+        List<Course> studentRegisteredCourseAlready = student.getCoursesEnrolled();
+        studentRegisteredCourseAlready.add(courses.get(courseId));
     }
 
     public List<Course> searchCoursesOfEachTeacher(BigInteger teacherId){
         return null;
+    }
+
+    public Course getCourse(BigInteger courseId){
+        return courses.get(courseId);
     }
 }

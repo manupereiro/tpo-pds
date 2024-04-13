@@ -15,6 +15,6 @@ public class SubjectController {
     }
 
     public Subject getSubject(BigInteger subjectId){
-        return null;
+        return subjects.get(subjectId);
     }
 }

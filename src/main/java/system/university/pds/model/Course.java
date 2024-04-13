@@ -1,5 +1,7 @@
 package system.university.pds.model;
 
+import lombok.Getter;
+
 import java.math.BigInteger;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -7,12 +9,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Getter
 public class Course {
     private static BigInteger CURRENT_ID = BigInteger.ZERO;
     private final BigInteger id;
+    private final BigInteger degreeId;
     private String name;
-    private List<Teacher> teachers;
-    private List<Student> students;
+    private List<BigInteger> teachers;
+    private List<BigInteger> students;
     private Classroom classroom;
     private Map<String, Subject> prerequisitesCourses;
     private Map<String, Subject> subsequentCourses;
@@ -21,7 +25,8 @@ public class Course {
     private short duration;
     private double price;
 
-    public Course(String name,
+    public Course(BigInteger degreeId,
+                  String name,
                   Classroom classroom,
                   LocalTime startTime,
                   LocalTime endTime,
@@ -29,6 +34,7 @@ public class Course {
                   double price) {
         this.id = CURRENT_ID;
         CURRENT_ID = CURRENT_ID.add(BigInteger.ONE);
+        this.degreeId = degreeId;
         this.name = name;
         this.teachers = new ArrayList<>();
         this.students = new ArrayList<>();
@@ -42,15 +48,27 @@ public class Course {
     }
 
     public boolean checkPrerequisitesCourses(Student student){
-        return false;
+        List<Subject> studentPassedSubjects = student.getPassedSubjects();
+        for (Subject subject : prerequisitesCourses.values()) {
+            if (!studentPassedSubjects.contains(subject)){
+                return false;
+            }
+        }
+        return true;
     }
 
-    public void addStudentToCourse(Student student){
+    public boolean checkTotalHours(List<Course> studentCourses){
+        University university = new University();
+        Degree degree = university.getDegrees().get(degreeId);
+        short totalHours = 0;
+        for (Course course : studentCourses) {
+            totalHours += course.duration;
+        }
+        return totalHours + this.duration <= degree.getHoursPerSemester();
+    }
+
+    public void addStudentToCourse(BigInteger student){
         this.students.add(student);
-    }
-
-    public boolean checkTotalHours(List<Course> studentCourses, short totalHoursPerSemester){
-        return false;
     }
 
     @Override
