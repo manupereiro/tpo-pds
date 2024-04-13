@@ -15,7 +15,7 @@ public abstract class User {
     private String email;
     @Getter
     private String password;
-
+    // comentario
     public User(String name, String email, String password) {
         this.id = CURRENT_ID;
         CURRENT_ID = CURRENT_ID.add(BigInteger.ONE);
