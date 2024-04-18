@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Teacher extends User{
-    private List<Course> coursesAssigned;
+    private final List<Course> coursesAssigned;
 
     public Teacher(String name, String email, String password){
         super(name, email, password);

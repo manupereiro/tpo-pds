@@ -2,14 +2,17 @@ package system.university.pds.controller;
 
 import system.university.pds.model.Course;
 import system.university.pds.model.Student;
+import system.university.pds.model.Subject;
 
 import java.math.BigInteger;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class StudentController {
 
-    private Map<BigInteger, Student> students;
+    private final Map<BigInteger, Student> students;
 
     public StudentController() {
         this.students = new HashMap<>();
@@ -19,6 +22,14 @@ public class StudentController {
         CourseController courseController = new CourseController();
         Student student = students.get(studentId);
         Course course = courseController.getCourse(courseId);
+        Subject subject = course.getSubject();
+
+        Calendar cal = Calendar.getInstance();
+        Date date = cal.getTime();
+
+        if (date.before(subject.getStartingDay()) || date.after(subject.getDeadline())){
+            return;
+        }
 
         boolean prerequisitesCourses = course.checkPrerequisitesCourses(student);
         boolean scheduleIsNotFull = course.checkTotalHours(student.getCoursesEnrolled());

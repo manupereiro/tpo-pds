@@ -1,20 +1,16 @@
 package system.university.pds.model;
 
 import lombok.Getter;
-
 import java.math.BigInteger;
 
+@Getter
 public abstract class User {
 
     private static BigInteger CURRENT_ID = BigInteger.ZERO;
-    @Getter
     private final BigInteger id;
-    @Getter
-    private String name;
-    @Getter
-    private String email;
-    @Getter
-    private String password;
+    private final String name;
+    private final String email;
+    private final String password;
 
     public User(String name, String email, String password) {
         this.id = CURRENT_ID;

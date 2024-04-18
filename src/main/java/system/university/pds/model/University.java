@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Getter
 public class University {
-    private Map<BigInteger, Degree> degrees;
+    private final Map<BigInteger, Degree> degrees;
 
     public University() {
         this.degrees = new HashMap<>();

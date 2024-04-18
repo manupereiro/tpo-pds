@@ -10,9 +10,9 @@ import java.util.List;
 @Getter
 public class Student extends User{
 
-    private List<Course> coursesEnrolled;
+    private final List<Course> coursesEnrolled;
 
-    private List<Subject> passedSubjects;
+    private final List<Subject> passedSubjects;
 
     public Student(String name, String email, String password){
         super(name, email, password);
