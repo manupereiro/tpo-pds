@@ -9,8 +9,16 @@ import java.util.Map;
 public class SubjectController {
 
     private Map<BigInteger, Subject> subjects;
+    private static SubjectController instance = null;
 
-    public SubjectController() {
+    public static SubjectController getInstance() {
+        if (instance == null) {
+            instance = new SubjectController();
+        }
+        return instance;
+    }
+
+    private SubjectController() {
         this.subjects = new HashMap<>();
     }
 

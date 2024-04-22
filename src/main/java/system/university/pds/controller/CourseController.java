@@ -1,7 +1,7 @@
 package system.university.pds.controller;
 
 import system.university.pds.model.Course;
-import system.university.pds.model.Student;
+import system.university.pds.model.User;
 
 import java.math.BigInteger;
 import java.util.HashMap;
@@ -10,21 +10,28 @@ import java.util.Map;
 
 public class CourseController {
     private Map<BigInteger, Course> courses;
+    private static CourseController instance = null;
 
-    public CourseController() {
+    private CourseController() {
+        super();
         this.courses = new HashMap<>();
     }
 
-    public void addStudentToRegisteredCourse(Student student, BigInteger courseId){
-        List<Course> studentRegisteredCourseAlready = student.getCoursesEnrolled();
-        studentRegisteredCourseAlready.add(courses.get(courseId));
+    public static CourseController getInstance() {
+        if (instance == null) {
+            instance = new CourseController();
+        }
+        return instance;
     }
 
-    public List<Course> searchCoursesOfEachTeacher(BigInteger teacherId){
-        return null;
+    public void addStudentToRegisteredCourse(User student, BigInteger courseId){
+        List<Course> studentAssignedCourseAlready = student.getAssignedCourses();
+        studentAssignedCourseAlready.add(courses.get(courseId));
     }
 
     public Course getCourse(BigInteger courseId){
         return courses.get(courseId);
     }
+
+
 }

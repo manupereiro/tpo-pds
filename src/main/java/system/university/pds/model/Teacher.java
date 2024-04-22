@@ -5,15 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Teacher extends User{
-    private final List<Course> coursesAssigned;
 
-    public Teacher(String name, String email, String password){
-        super(name, email, password);
-        this.coursesAssigned = new ArrayList<>();
+    public Teacher(String name, String password){
+        super(name, password);
     }
-
-    public List<Course> searchCoursesOfEachTeacher(BigInteger teacherId){
-        return null;
-    }
-
 }

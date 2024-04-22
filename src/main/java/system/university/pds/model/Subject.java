@@ -3,10 +3,7 @@ package system.university.pds.model;
 import lombok.Getter;
 
 import java.math.BigInteger;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 public class Subject {
@@ -16,6 +13,8 @@ public class Subject {
     private final Map<BigInteger, Course> courses;
     private final Date startingDay;
     private final Date deadline;
+    private final List<Subject> prerequisitesSubjects;
+    private final List<Subject> subsequentSubjects;
 
     public Subject(String name, Date startingDay, Date deadline){
         this.id = CURRENT_ID;
@@ -24,6 +23,8 @@ public class Subject {
         this.courses = new HashMap<>();
         this.startingDay = startingDay;
         this.deadline = deadline;
+        this.prerequisitesSubjects = new ArrayList<>();
+        this.subsequentSubjects = new ArrayList<>();
     }
 
     public void displayCourses(){
@@ -31,7 +32,7 @@ public class Subject {
             Calendar cal = Calendar.getInstance();
             Date date = cal.getTime();
             if (date.before(startingDay) || date.after(deadline)){
-                System.out.println(course.getName() + "is not available");
+                System.out.println(course.getSubject().getName() + "is not available");
             }
             System.out.println(course);
         }
