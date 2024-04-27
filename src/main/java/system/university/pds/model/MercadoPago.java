@@ -15,6 +15,7 @@ public class MercadoPago implements PaymentMethod{
     @Override
     public boolean verifyPaymentMethod(){
         System.out.println("Verifying payment method using MercadoPago");
+        System.out.println("Payment method verified successfully using MercadoPago");
         return true;
     }
 

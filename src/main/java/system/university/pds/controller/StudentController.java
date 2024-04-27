@@ -53,8 +53,7 @@ public class StudentController {
         if (prerequisitesCourses && scheduleIsNotFull){
             course.addStudentToCourse(student.getId());
             courseController.addStudentToRegisteredCourse(student, course.getId());
-            student.addCourse(course);
-
+            student.addCourse(course); // add the course to the student list
             /*
             * Una vez que el estudiante se incribio to-do correcto hay que generar la orden de pago
             * Tambien falto lo del dia estipulado por la facultad eso es previo a que el estudiante

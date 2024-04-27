@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class CourseController {
-    private Map<BigInteger, Course> courses;
+    private final Map<BigInteger, Course> courses;
     private static CourseController instance = null;
 
     private CourseController() {
