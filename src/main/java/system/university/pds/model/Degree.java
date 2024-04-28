@@ -22,4 +22,6 @@ public class Degree {
         this.hoursPerSemester = hoursPerSemester;
         this.subjects = new HashMap<>();
     }
+
+
 }

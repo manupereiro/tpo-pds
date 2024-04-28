@@ -13,7 +13,6 @@ public class CourseController {
     private static CourseController instance = null;
 
     private CourseController() {
-        super();
         this.courses = new HashMap<>();
     }
 
@@ -31,6 +30,10 @@ public class CourseController {
 
     public Course getCourse(BigInteger courseId){
         return courses.get(courseId);
+    }
+
+    public void addCourse(Course course){
+        courses.put(course.getId(), course);
     }
 
 

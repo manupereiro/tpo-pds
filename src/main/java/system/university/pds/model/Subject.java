@@ -11,17 +11,17 @@ public class Subject {
     private final BigInteger id;
     private final String name;
     private final Map<BigInteger, Course> courses;
-    private final Date startingDay;
+    private final Date inscriptionDate;
     private final Date deadline;
     private final List<Subject> prerequisitesSubjects;
     private final List<Subject> subsequentSubjects;
 
-    public Subject(String name, Date startingDay, Date deadline){
+    public Subject(String name, Date inscriptionDate, Date deadline){
         this.id = CURRENT_ID;
         CURRENT_ID = CURRENT_ID.add(BigInteger.ONE);
         this.name = name;
         this.courses = new HashMap<>();
-        this.startingDay = startingDay;
+        this.inscriptionDate = inscriptionDate;
         this.deadline = deadline;
         this.prerequisitesSubjects = new ArrayList<>();
         this.subsequentSubjects = new ArrayList<>();
@@ -31,10 +31,21 @@ public class Subject {
         for (Course course : courses.values()) {
             Calendar cal = Calendar.getInstance();
             Date date = cal.getTime();
-            if (date.before(startingDay) || date.after(deadline)){
+            if (date.before(inscriptionDate) || date.after(deadline)){
                 System.out.println(course.getSubject().getName() + "is not available");
             }
             System.out.println(course);
         }
+    }
+    public void addCourse(Course course){
+        courses.put(course.getId(), course);
+    }
+
+    public void addPrerequisiteSubject(Subject subject){
+        prerequisitesSubjects.add(subject);
+    }
+
+    public void addSubsequentSubject(Subject subject){
+        subsequentSubjects.add(subject);
     }
 }

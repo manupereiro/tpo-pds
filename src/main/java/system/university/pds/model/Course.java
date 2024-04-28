@@ -11,7 +11,6 @@ import java.util.List;
 public class Course {
     private static BigInteger CURRENT_ID = BigInteger.ZERO;
     private final BigInteger id;
-    private final BigInteger degreeId;
     private final Subject subject;
     private final List<BigInteger> teachers;
     private final List<BigInteger> students;
@@ -21,8 +20,7 @@ public class Course {
     private final short duration;
     private final double price;
 
-    public Course(BigInteger degreeId,
-                  Subject subject,
+    public Course(Subject subject,
                   Classroom classroom,
                   LocalTime startTime,
                   LocalTime endTime,
@@ -30,7 +28,6 @@ public class Course {
                   double price) {
         this.id = CURRENT_ID;
         CURRENT_ID = CURRENT_ID.add(BigInteger.ONE);
-        this.degreeId = degreeId;
         this.subject = subject;
         this.teachers = new ArrayList<>();
         this.students = new ArrayList<>();
@@ -52,14 +49,12 @@ public class Course {
         return true;
     }
 
-    public boolean checkTotalHours(List<Course> studentCourses){
-        University university = new University();
-        Degree degree = university.getDegrees().get(degreeId);
+    public boolean checkTotalHours(List<Course> studentCourses, short totalHoursDegree){
         short totalHours = 0;
         for (Course course : studentCourses) {
             totalHours += course.duration;
         }
-        return totalHours + this.duration <= degree.getHoursPerSemester();
+        return totalHours + this.duration <= totalHoursDegree;
     }
 
     public void addStudentToCourse(BigInteger student){

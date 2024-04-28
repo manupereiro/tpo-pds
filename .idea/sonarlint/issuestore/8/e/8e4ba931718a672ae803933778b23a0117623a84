@@ -1,3 +1,48 @@
 
-½
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Çµí‘J$ddd7310e-8f3b-41a3-b9be-59727f6bcf90
+’	java:S117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÛô8ÛÍ”³ò1J$c193b122-6f79-4a3a-b28c-10d5b075e289
+˜	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘¾¤şüÿÿÿÿ8ÛÍ”³ò1J$5a7b4a6f-52ab-4a02-aefd-38d3d29f3371
+“	java:S1171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì²ª8ÛÍ”³ò1J$99ff73b9-37bd-40b2-8d80-9ae420796e45
+‚
+java:S1854+":Remove this useless assignment to local variable "damian".(ÓĞ£âùÿÿÿÿ8çÍ”³ò1J$d482130b-8c12-4bfc-8025-7915177c9417
+€
+java:S1854*"8Remove this useless assignment to local variable "nico".(¹¯ğ–úÿÿÿÿ8çÍ”³ò1J$b6dec9f6-4f3b-48e2-8e5f-491b2c7efc51
+z
+java:S1854"8Remove this useless assignment to local variable "rena".(¾œÈt8çÍ”³ò1J$f0fa6c23-a260-4bdf-8797-353aef8b0735
+{
+java:S1854"8Remove this useless assignment to local variable "sofi".(í›˜Õ8çÍ”³ò1J$e10114fc-966d-4aa8-8243-b6265a3706ab
+
+java:S1854"9Remove this useless assignment to local variable "santi".(öâ©µøÿÿÿÿ8çÍ”³ò1J$dff36dcc-c09d-4529-896b-db733028cfb8
+{
+java:S1854"8Remove this useless assignment to local variable "juan".(Ší¦‡8çÍ”³ò1J$21cfea29-5f04-4aa0-b2e8-9f06fc1c964a
+{
+java:S1854"8Remove this useless assignment to local variable "manu".(¨¦Öü8çÍ”³ò1J$2640d716-6ffe-4ec3-b62e-fb245dd80327
+
+java:S1854">Remove this useless assignment to local variable "industrial".(¸ß…³8çÍ”³ò1J$0d539b91-6f07-41a8-ac98-3d7eda3223c5
+~
+java:S1854";Remove this useless assignment to local variable "grafico".(Ô…èÑ8çÍ”³ò1J$2019e685-e3a1-497e-82d6-22c303fae0a4
+o
+java:S1481",Remove this unused "grafico" local variable.(Ô…èÑ8éÍ”³ò1J$57b8d6f6-3dff-468f-ab1e-ab088b9e2902
+r
+java:S1481"/Remove this unused "industrial" local variable.(¸ß…³8éÍ”³ò1J$4d0591b8-6d35-493b-b4f3-f142f15f9a8f
+l
+java:S1481")Remove this unused "manu" local variable.(¨¦Öü8éÍ”³ò1J$ca27090c-f7f1-41ac-a0c5-6c45bdc2c644
+l
+java:S1481")Remove this unused "juan" local variable.(Ší¦‡8êÍ”³ò1J$3437c52f-6556-4e9a-991f-de9868eadbeb
+r
+java:S1481"*Remove this unused "santi" local variable.(öâ©µøÿÿÿÿ8êÍ”³ò1J$3338faf0-225f-4311-b4fa-2d4be395853d
+l
+java:S1481")Remove this unused "sofi" local variable.(í›˜Õ8êÍ”³ò1J$230fc443-334c-44b3-a3dc-eb0284ac4071
+k
+java:S1481")Remove this unused "rena" local variable.(¾œÈt8êÍ”³ò1J$697e9ef0-b4fe-4abd-954d-a86335e4ca7e
+t
+java:S1874!",Remove this use of "Date"; it is deprecated.(öœƒÿÿÿÿÿ8ëÍ”³ò1J$b7ecf454-0e7e-4755-8351-58cb6d3be939
+t
+java:S1874"",Remove this use of "Date"; it is deprecated.(ÖÃìÚúÿÿÿÿ8ëÍ”³ò1J$f497e7a4-1022-4c96-a415-cc1c0a3d379d
+o
+java:S1874#",Remove this use of "Date"; it is deprecated.(ä­²»8ëÍ”³ò1J$e632a821-6808-4b98-8c83-45a52e2ab885
+q
+java:S1481*")Remove this unused "nico" local variable.(¹¯ğ–úÿÿÿÿ8ìÍ”³ò1J$f90b734b-8fb5-4715-9a1f-99003e9ddf1b
+s
+java:S1481+"+Remove this unused "damian" local variable.(ÓĞ£âùÿÿÿÿ8ìÍ”³ò1J$d387bd31-d520-4ace-8d34-7073e2b72dfa
+t
+java:S1128"1Remove this unused import 'java.math.BigInteger'.(»Çâ€8±Ì¯³ò1J$6d0d7d04-8be7-45b7-8516-6d66239b4cde

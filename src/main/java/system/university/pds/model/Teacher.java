@@ -9,4 +9,9 @@ public class Teacher extends User{
     public Teacher(String name, String password){
         super(name, password);
     }
+
+    @Override
+    public List<Course> getAssignedCourses() {
+        return super.getAssignedCourses();
+    }
 }

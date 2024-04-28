@@ -25,4 +25,13 @@ public class SubjectController {
     public Subject getSubject(BigInteger subjectId){
         return subjects.get(subjectId);
     }
+
+    public void Correlate (Subject subject1, Subject subject2){
+        subject1.addSubsequentSubject(subject2);
+        subject2.addPrerequisiteSubject(subject1);
+    }
+
+    public void addSubject(Subject subject){
+        subjects.put(subject.getId(), subject);
+    }
 }

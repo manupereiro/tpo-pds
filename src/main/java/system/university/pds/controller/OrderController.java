@@ -5,6 +5,7 @@ import system.university.pds.model.Order;
 import system.university.pds.model.User;
 
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.Map;
 
 public class OrderController {
@@ -23,14 +24,21 @@ public class OrderController {
     }
 
     private OrderController() {
+        this.orders = new HashMap<>();
     }
 
-    public void generateOrder(User student) {
+    public Order generateOrder(User student) {
         Order order = new Order(student);
-        orders.put(orderId, order);
-        orderId.add(BigInteger.ONE);
         for (Course course : student.getAssignedCourses()) {
             order.addCourse(course.getId(), course);
         }
+        addOrder(order);
+        return order;
     }
+
+    private void addOrder(Order order) {
+        orders.put(orderId, order);
+        orderId.add(BigInteger.ONE);
+    }
+
 }

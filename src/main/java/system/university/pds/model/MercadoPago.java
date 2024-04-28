@@ -7,6 +7,7 @@ public class MercadoPago implements PaymentMethod{
         this.amount = amount;
     }
 
+
     @Override
     public void pay(double amount){
         System.out.println("Paying " + amount + " using MercadoPago");

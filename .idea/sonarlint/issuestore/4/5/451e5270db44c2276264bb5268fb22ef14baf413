@@ -1,7 +1,6 @@
 
 
-java:S1117""9Rename "title" which hides the field declared at line 16.(ä‘âÿþÿÿÿÿ8ÄÄñ™ï1J$84700570-7d29-45a2-ac11-51fdfb8c61a9
+java:S1117#"9Rename "title" which hides the field declared at line 16.(ä‘âÿþÿÿÿÿ8ÄÄñ™ï1J$6126b46c-e8b0-4eb1-81bf-a623df8396ca
 Ž
-java:S3252#"FUse static access with "com.itextpdf.text.Element" for "ALIGN_CENTER".(†£¾úÿÿÿÿ8ÆÄñ™ï1J$f953c944-37bf-4b93-ba8a-10964e66ff8b
-u
-java:S1144"-Remove this unused private "formatTo" method.(âë¿–üÿÿÿÿ8¤õó™ï1J$dddc6620-4cfd-4c36-9855-60fb4aeae860
+java:S3252$"FUse static access with "com.itextpdf.text.Element" for "ALIGN_CENTER".(†£¾úÿÿÿÿ8ÆÄñ™ï1J$0031b85e-a99f-4332-a680-4ef5d9dd1548
+ƒ	java:S125>"<This block of commented-out lines of code should be removed.(ªŽ¡Ôøÿÿÿÿ8¹ì¦­ò1J$d177488b-e9d1-4d56-828b-fa4a49a4c74b

@@ -17,14 +17,15 @@ public class PDFGenerator {
     private final String filePath;
 
 
-    public PDFGenerator(Teacher teacher){
-        this.courses = teacher.getCoursesAssigned();
+    public PDFGenerator(User teacher){
+        this.courses = teacher.getAssignedCourses();
         this.title = teacher.getName();
         this.filePath = teacher.getId() + ".pdf";
 
     }
 
-    private void formatTo(){
+
+    public void formatTo(){
 
         try {
             Document document = new Document();
@@ -58,9 +59,10 @@ public class PDFGenerator {
 
         for (Course course : this.courses){
             table.addCell(course.getId().toString());
-            table.addCell(course.getName());
+            // table.addCell(course.getName());
+            table.addCell("nombremateria");
             table.addCell(course.getStartTime() + " - " + course.getEndTime());
-            table.addCell(course.getClassroom().getClassroomNumber().toString());
+            table.addCell(String.valueOf(course.getClassroom().getClassroomNumber()));
         }
         return table;
     }
