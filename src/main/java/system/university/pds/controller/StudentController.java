@@ -2,7 +2,6 @@ package system.university.pds.controller;
 
 import system.university.pds.model.*;
 
-import java.math.BigInteger;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -10,7 +9,7 @@ import java.util.Map;
 
 public class StudentController {
 
-    private final Map<BigInteger, Student> students;
+    private final Map<Integer, Student> students;
     private static StudentController instance = null;
 
     public static StudentController getInstance() {
@@ -25,13 +24,30 @@ public class StudentController {
     }
 
 
-    public void checkCourses(BigInteger courseId){
+    public void checkCourses(int courseId){
         SubjectController subjectController = SubjectController.getInstance();
         Subject subject = subjectController.getSubject(courseId);
         subject.displayCourses();
     }
 
-    public void signUpToCourse(BigInteger studentId, BigInteger courseId){
+    public void checkCourses(String turn) {
+        SubjectController subjectController = SubjectController.getInstance();
+        for (Subject subject : subjectController.getSubjects().values()) {
+            for (Course course : subject.getCourses().values()) {
+                if (course.getTurn().equals(Turn.fromString(turn))){
+                    Calendar cal = Calendar.getInstance();
+                    Date date = cal.getTime();
+                    if (date.before(subject.getInscriptionDate()) || date.after(subject.getDeadline())){
+                        System.out.println(course.getSubject().getName() + "is not available");
+                    } else {
+                        System.out.println(course);
+                    }
+                }
+            }
+        }
+    }
+
+    public void signUpToCourse(int studentId, int courseId){
         CourseController courseController = CourseController.getInstance();
         User student = students.get(studentId);
         Course course = courseController.getCourse(courseId);

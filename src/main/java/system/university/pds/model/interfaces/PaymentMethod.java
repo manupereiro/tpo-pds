@@ -1,4 +1,4 @@
-package system.university.pds.model;
+package system.university.pds.model.interfaces;
 
 public interface PaymentMethod {
 

@@ -4,15 +4,14 @@ import system.university.pds.model.Course;
 import system.university.pds.model.Order;
 import system.university.pds.model.User;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
 public class OrderController {
 
-    private Map<BigInteger, Order> orders;
+    private Map<Integer, Order> orders;
 
-    private static BigInteger orderId = BigInteger.ZERO;
+    private static int orderId = 0;
 
     private static OrderController instance = null;
 
@@ -38,7 +37,7 @@ public class OrderController {
 
     private void addOrder(Order order) {
         orders.put(orderId, order);
-        orderId.add(BigInteger.ONE);
+        orderId++;
     }
 
 }

@@ -2,13 +2,12 @@ package system.university.pds.model;
 
 import lombok.Getter;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
 @Getter
 public class University {
-    private final Map<BigInteger, Degree> degrees;
+    private final Map<Integer, Degree> degrees;
     private static University instance = null;
 
     private University() {

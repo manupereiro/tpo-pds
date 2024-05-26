@@ -1,41 +1,46 @@
 package system.university.pds.model;
 
 import lombok.Getter;
+import lombok.Setter;
+import system.university.pds.model.interfaces.CourseObserver;
+import system.university.pds.model.interfaces.CourseSubject;
 
-import java.math.BigInteger;
-import java.time.LocalTime;
+import java.time.DayOfWeek;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
-public class Course {
-    private static BigInteger CURRENT_ID = BigInteger.ZERO;
-    private final BigInteger id;
+@Setter
+public class Course implements CourseSubject {
+    private static int CURRENT_ID = 0;
+    private final int id;
     private final Subject subject;
-    private final List<BigInteger> teachers;
-    private final List<BigInteger> students;
+    private final List<Integer> teachers;
+    private final List<Integer> students;
     private final Classroom classroom;
-    private final LocalTime startTime;
-    private final LocalTime endTime;
     private final short duration;
     private final double price;
+    private Turn turn;
+    private final DayOfWeek day;
+    private final Set<CourseObserver> observers;
 
     public Course(Subject subject,
                   Classroom classroom,
-                  LocalTime startTime,
-                  LocalTime endTime,
                   short duration,
-                  double price) {
+                  double price,
+                  DayOfWeek day) {
         this.id = CURRENT_ID;
-        CURRENT_ID = CURRENT_ID.add(BigInteger.ONE);
+        CURRENT_ID++;
         this.subject = subject;
         this.teachers = new ArrayList<>();
         this.students = new ArrayList<>();
         this.classroom = classroom;
-        this.startTime = startTime;
-        this.endTime = endTime;
         this.duration = duration;
         this.price = price;
+        this.day = day;
+        this.observers = new HashSet<>();
     }
 
     public boolean checkPrerequisitesCourses(User student){
@@ -57,11 +62,29 @@ public class Course {
         return totalHours + this.duration <= totalHoursDegree;
     }
 
-    public void addStudentToCourse(BigInteger student){
+    public void addStudentToCourse(int student){
         this.students.add(student);
     }
-    public void addTeacherToCourse(BigInteger teacher){
+    public void addTeacherToCourse(int teacher){
         this.teachers.add(teacher);
+    }
+
+
+    @Override
+    public void addObserver(CourseObserver observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(CourseObserver observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (CourseObserver observer : observers) {
+            observer.update(this);
+        }
     }
 
     @Override
@@ -70,9 +93,10 @@ public class Course {
                 ", teachers=" + teachers +
                 ", students=" + students +
                 ", classroom=" + classroom +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
                 ", duration=" + duration +
-                ", price=" + price + '}';
+                ", price=" + price +
+                ", turn=" + turn +
+                ", day=" + day +
+                '}';
     }
 }

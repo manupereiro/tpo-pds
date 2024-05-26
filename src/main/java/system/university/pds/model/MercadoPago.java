@@ -1,12 +1,17 @@
 package system.university.pds.model;
 
-public class MercadoPago implements PaymentMethod{
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import system.university.pds.model.interfaces.PaymentMethod;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class MercadoPago implements PaymentMethod {
     private double amount;
-
-    public MercadoPago(double amount) {
-        this.amount = amount;
-    }
-
 
     @Override
     public void pay(double amount){

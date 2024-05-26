@@ -5,26 +5,25 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import system.university.pds.model.interfaces.IFormatGenerator;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.time.LocalTime;
 import java.util.List;
 
-public class PDFGenerator {
-
+public class PDFGenerator implements IFormatGenerator {
     private final List<Course> courses;
     private final String title;
     private final String filePath;
-
 
     public PDFGenerator(User teacher){
         this.courses = teacher.getAssignedCourses();
         this.title = teacher.getName();
         this.filePath = teacher.getId() + ".pdf";
-
     }
 
-
+    @Override
     public void formatTo(){
 
         try {
@@ -56,17 +55,39 @@ public class PDFGenerator {
         table.addCell("Horario");
         table.addCell("Aula");
 
-
         for (Course course : this.courses){
-            table.addCell(course.getId().toString());
+            table.addCell(String.valueOf(course.getId()));
             // table.addCell(course.getName());
             table.addCell("nombremateria");
-            table.addCell(course.getStartTime() + " - " + course.getEndTime());
+            table.addCell(getStartTime(course) + " - " + getEndTime(course));
             table.addCell(String.valueOf(course.getClassroom().getClassroomNumber()));
         }
         return table;
     }
 
+    private LocalTime getStartTime(Course course){
+        switch (course.getTurn()){
+            case MORNING:
+                return LocalTime.of(7, 45);
+            case EVENING:
+                return LocalTime.of(14, 0);
+            case NIGHT:
+                return LocalTime.of(18, 30);
+            default:
+                return null;
+        }
+    }
 
-
+    private LocalTime getEndTime(Course course){
+        switch (course.getTurn()){
+            case MORNING:
+                return LocalTime.of(11, 45);
+            case EVENING:
+                return LocalTime.of(18, 0);
+            case NIGHT:
+                return LocalTime.of(22, 30);
+            default:
+                return null;
+        }
+    }
 }

@@ -2,15 +2,14 @@ package system.university.pds.model;
 
 import lombok.Getter;
 
-import java.math.BigInteger;
 import java.util.*;
 
 @Getter
 public class Subject {
-    private static BigInteger CURRENT_ID = BigInteger.ZERO;
-    private final BigInteger id;
+    private static int CURRENT_ID = 0;
+    private final int id;
     private final String name;
-    private final Map<BigInteger, Course> courses;
+    private final Map<Integer, Course> courses;
     private final Date inscriptionDate;
     private final Date deadline;
     private final List<Subject> prerequisitesSubjects;
@@ -18,7 +17,7 @@ public class Subject {
 
     public Subject(String name, Date inscriptionDate, Date deadline){
         this.id = CURRENT_ID;
-        CURRENT_ID = CURRENT_ID.add(BigInteger.ONE);
+        CURRENT_ID++;
         this.name = name;
         this.courses = new HashMap<>();
         this.inscriptionDate = inscriptionDate;
@@ -33,8 +32,9 @@ public class Subject {
             Date date = cal.getTime();
             if (date.before(inscriptionDate) || date.after(deadline)){
                 System.out.println(course.getSubject().getName() + "is not available");
+            } else {
+                System.out.println(course);
             }
-            System.out.println(course);
         }
     }
     public void addCourse(Course course){
