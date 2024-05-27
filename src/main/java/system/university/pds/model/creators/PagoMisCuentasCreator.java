@@ -7,8 +7,8 @@ import system.university.pds.model.interfaces.PaymentMethod;
 
 public class PagoMisCuentasCreator extends Payment {
 
-    public PagoMisCuentasCreator(Order order, PaymentMethod paymentMethod) {
-        super(order, paymentMethod);
+    public PagoMisCuentasCreator(Order order) {
+        super(order);
     }
 
     @Override

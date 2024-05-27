@@ -30,7 +30,7 @@ public class Course implements CourseSubject {
                   Classroom classroom,
                   short duration,
                   double price,
-                  DayOfWeek day) {
+                  DayOfWeek day, String turn) {
         this.id = CURRENT_ID;
         CURRENT_ID++;
         this.subject = subject;
@@ -41,6 +41,7 @@ public class Course implements CourseSubject {
         this.price = price;
         this.day = day;
         this.observers = new HashSet<>();
+        this.turn = Turn.fromString(turn);
     }
 
     public boolean checkPrerequisitesCourses(User student){
@@ -68,7 +69,6 @@ public class Course implements CourseSubject {
     public void addTeacherToCourse(int teacher){
         this.teachers.add(teacher);
     }
-
 
     @Override
     public void addObserver(CourseObserver observer) {

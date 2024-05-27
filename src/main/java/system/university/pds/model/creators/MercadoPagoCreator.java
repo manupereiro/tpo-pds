@@ -7,8 +7,8 @@ import system.university.pds.model.interfaces.PaymentMethod;
 
 public class MercadoPagoCreator extends Payment {
 
-    public MercadoPagoCreator(Order order, PaymentMethod paymentMethod) {
-        super(order, paymentMethod);
+    public MercadoPagoCreator(Order order) {
+        super(order);
     }
 
     @Override

@@ -7,8 +7,8 @@ import system.university.pds.model.interfaces.PaymentMethod;
 
 public class BinanceCreator extends Payment {
 
-    public BinanceCreator(Order order, PaymentMethod paymentMethod) {
-        super(order, paymentMethod);
+    public BinanceCreator(Order order) {
+        super(order);
     }
 
     @Override

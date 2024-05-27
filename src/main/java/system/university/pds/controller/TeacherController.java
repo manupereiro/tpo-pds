@@ -40,6 +40,11 @@ public class TeacherController implements ScheduleSubject {
         notifyObservers();
     }
 
+    public void assignHours(Teacher teacher, short hours){
+        Teacher teacherAux = this.teachers.get(teacher.getId());
+        teacherAux.assignHours(hours);
+    }
+
     @Override
     public void addObserver(ScheduleObserver observer) {
         observers.add(observer);

@@ -29,7 +29,6 @@ public class CourseController implements CourseObserver {
     public void addStudentToRegisteredCourse(User student, int courseId){
         List<Course> studentAssignedCourseAlready = student.getAssignedCourses();
         studentAssignedCourseAlready.add(courses.get(courseId));
-
     }
 
     public Course getCourse(int courseId){
@@ -52,7 +51,8 @@ public class CourseController implements CourseObserver {
                 classroom,
                 course.getDuration(),
                 course.getPrice(),
-                day);
+                day,
+                course.getTurn().toString());
         newCourse.setTurn(course.getTurn());
         addCourse(newCourse);
     }
