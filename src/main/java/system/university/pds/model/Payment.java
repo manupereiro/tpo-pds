@@ -1,21 +1,17 @@
 package system.university.pds.model;
 
-import java.util.List;
 
-public class Payment {
-    private PaymentMethod paymentMethod;
+import system.university.pds.model.interfaces.PaymentMethod;
+
+public abstract class Payment {
+
     private Order order;
 
-    public Payment(Order order, PaymentMethod paymentMethod) {
+    public Payment(Order order) {
         this.order = order;
-        this.paymentMethod = paymentMethod;
+
     }
 
-    public boolean pay(double amount) {
-        if (paymentMethod.verifyPaymentMethod()) {
-            paymentMethod.pay(amount);
-            return true;
-        }
-        return false;
-    }
+    public abstract PaymentMethod createPaymentMethod();
+
 }

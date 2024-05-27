@@ -1,14 +1,15 @@
 package system.university.pds.controller;
 
+import lombok.Getter;
 import system.university.pds.model.Subject;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SubjectController {
 
-    private Map<BigInteger, Subject> subjects;
+    @Getter
+    private Map<Integer, Subject> subjects;
     private static SubjectController instance = null;
 
     public static SubjectController getInstance() {
@@ -22,7 +23,7 @@ public class SubjectController {
         this.subjects = new HashMap<>();
     }
 
-    public Subject getSubject(BigInteger subjectId){
+    public Subject getSubject(int subjectId){
         return subjects.get(subjectId);
     }
 

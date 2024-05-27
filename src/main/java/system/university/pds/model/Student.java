@@ -2,7 +2,6 @@ package system.university.pds.model;
 
 import lombok.Getter;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +9,9 @@ import java.util.List;
 public class Student extends User{
 
     private final List<Subject> passedSubjects;
-    private final BigInteger degreeId;
+    private final int degreeId;
 
-    public Student(String name, String password, BigInteger degreeId){
+    public Student(String name, String password, int degreeId){
         super(name, password);
         this.passedSubjects = new ArrayList<>();
         this.degreeId = degreeId;
