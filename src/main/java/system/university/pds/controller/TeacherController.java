@@ -57,8 +57,11 @@ public class TeacherController implements ScheduleSubject {
 
     @Override
     public void notifyObservers() {
-        for (ScheduleObserver observer : observers) {
-            observer.update(teachers.get(1));
+        for (Teacher teacher : teachers.values()) {
+            for (ScheduleObserver observer : observers) {
+                observer.update(teacher);
+            }
         }
     }
+
 }

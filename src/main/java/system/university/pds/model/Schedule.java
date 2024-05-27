@@ -21,19 +21,28 @@ public class Schedule implements ScheduleObserver {
 
     @Override
     public void update(User teacher) {
-        List<Course> course = teacher.getAssignedCourses();
-        for (Course c : course) {
+        if (teacher == null) {
+            return; // Evitar NullPointerException
+        }
+
+        List<Course> courses = teacher.getAssignedCourses();
+        if (courses == null) {
+            return; // Evitar NullPointerException
+        }
+
+        for (Course c : courses) {
             DayOfWeek day = c.getDay();
-            if (daysOfTeachersTeach.get(day) == null) {
-                List<Integer> teachers = new ArrayList<>();
+            daysOfTeachersTeach.putIfAbsent(day, new ArrayList<>());
+
+            List<Integer> teachers = daysOfTeachersTeach.get(day);
+            if (!teachers.contains(teacher.getId())) {
                 teachers.add(teacher.getId());
-                daysOfTeachersTeach.put(day, teachers);
-            } else {
-                daysOfTeachersTeach.get(day).add(teacher.getId());
             }
         }
-        coursesByTeacher.put(teacher.getId(), course);
+
+        coursesByTeacher.put(teacher.getId(), courses);
     }
+
 
     private void addDaysToMap(){
         for (DayOfWeek day : DayOfWeek.values()) {
